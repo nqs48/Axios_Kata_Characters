@@ -12,11 +12,9 @@ export class SantosService {
       let res=axios.get(`${this.#privateUrl}/santos`);
       return res;
     } catch (error) {
-      let message = error.statusText || "Ocurrió un Error";
+      let message = error.statusText || "Something went Wrong!!";
       console.error(message);
-    }
-
-    
+    } 
   }
 
   async setModel() {

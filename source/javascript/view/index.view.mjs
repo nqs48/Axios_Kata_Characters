@@ -34,13 +34,16 @@ export class IndexView {
       const paragraphName = this.#privateCreateParagraph();
       paragraphName.textContent = c.Nombre;
       paragraphName.className = "paragraph";
+
       const paragraphConstellation = this.#privateCreateParagraph();
       paragraphConstellation.textContent = c.Constelacion;
       paragraphConstellation.className = "paragraph";
-      const img = document.createElement("img");
+
+      const img = this.#privateCreateImg();
       img.className = "images_list";
       img.src = c.Url;
       img.alt = "Image Character";
+
       const divButtons = this.#privateCreateContainer();
       divButtons.className = "buttons_container";
 
@@ -51,12 +54,13 @@ export class IndexView {
       buttonEdit.dataset.name=`${c.Nombre}`;
       buttonEdit.dataset.constellation=`${c.Constelacion}`;
       buttonEdit.dataset.url=`${c.Url}`;
+
       const buttonDelete = this.#privateCreateButton();
       buttonDelete.textContent = "Delete";
       buttonDelete.className = "button_delete button delete";
       buttonDelete.dataset.id=`${c.Id}`;
-      divButtons.append(buttonEdit, buttonDelete);
 
+      divButtons.append(buttonEdit, buttonDelete);
       button.append(img, paragraphName, paragraphConstellation, divButtons);
       div.append(button);
       container.append(div);
