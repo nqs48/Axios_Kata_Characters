@@ -112,6 +112,28 @@
             
           }
         }else{
+          //UPDATE PUT
+          try {
+          let idUpdate= e.target.id.value;
+          let options= {
+              method: "PUT",
+              headers: {
+                "Content-type":"application/json; charset=UTF-8"
+              },
+              data: JSON.stringify({
+                nombre: e.target.nombre.value,
+                constelacion: e.target.constelacion.value
+              })
+            },
+            res = await axios(`http://localhost:3000/santos/${idUpdate}`, options);
+            json= await res.data;
+            location.reload();
+            
+          } catch (error) {
+            let message= error.statusText || "Ocurrió un Error";
+            $form.insertAdjacentHTML('afterend', `<p><b>Error ${error.status}:${message}</b></p>`);
+            
+          }
 
         }
         
@@ -129,29 +151,7 @@
         $title.textContent= "Editar Santo";
       }
       if(e.target.matches('.delete')){
-        try {
-          let idDelete= e.target.id.value;
-          let options= {
-              method: "PUT",
-              headers: {
-                "Content-type":"application/json; charset=UTF-8"
-              },
-              data: JSON.stringify({
-                nombre: e.target.nombre.value,
-                constelacion: e.target.constelacion.value
-              })
-            },
-            res = await axios(`http://localhost:3000/santos/${idDelete}`, options);
-            json= await res.data;
-            location.reload();
-            
-
-            
-          } catch (error) {
-            let message= error.statusText || "Ocurrió un Error";
-            $form.insertAdjacentHTML('afterend', `<p><b>Error ${error.status}:${message}</b></p>`);
-            
-          }
+        
 
       }
     })
