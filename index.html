@@ -129,6 +129,23 @@
         $title.textContent= "Editar Santo";
       }
       if(e.target.matches('.delete')){
+        try {
+            let options= {
+              method: "PUT",
+              headers: {
+                "Content-type":"application/json; charset=UTF-8"
+              },
+              data: JSON.stringify({
+                nombre: e.target.nombre.value,
+                constelacion: e.target.constelacion.value
+              })
+            }
+            
+          } catch (error) {
+            let message= error.statusText || "Ocurrió un Error";
+            $form.insertAdjacentHTML('afterend', `<p><b>Error ${error.status}:${message}</b></p>`);
+            
+          }
 
       }
     })
