@@ -5,6 +5,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CRUD API REST</title>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script type="module" src="./source/javascript/controller/index.controller.mjs" async defer></script>
 </head>
 <body>
   <h1>CRUD API REST</h1>
@@ -45,7 +47,7 @@
         </td>
       </tr>
   </template>
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <!--  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> -->
   <script>
     const $table= document.querySelector('.crud-table');
     const $form= document.querySelector('.crud-form');
@@ -53,36 +55,37 @@
     const $template= document.getElementById('crud-template').content;
     const $fragment= document.createDocumentFragment();
 
-    const getAll= async () =>{
-      try {
-        let res= await axios.get('http://localhost:3000/santos');
-        let json= await res.data;
-        console.log(json);
-        json.forEach(e => {
-          $template.querySelector('.name').textContent= e.nombre;
-          $template.querySelector('.constellation').textContent= e.constelacion;
-          $template.querySelector('.edit').dataset.id= e.id;
-          $template.querySelector('.edit').dataset.name= e.nombre;
-          $template.querySelector('.edit').dataset.constellation= e.constelacion;
-          $template.querySelector('.delete').dataset.id= e.id;
+    // const getAll= async () =>{
+    //   try {
+    //     let res= await axios.get('http://localhost:3000/santos');
+    //     console.log(res)
+    //     let json= await res.data;
+    //     console.log(json);
+    //     json.forEach(e => {
+    //       $template.querySelector('.name').textContent= e.nombre;
+    //       $template.querySelector('.constellation').textContent= e.constelacion;
+    //       $template.querySelector('.edit').dataset.id= e.id;
+    //       $template.querySelector('.edit').dataset.name= e.nombre;
+    //       $template.querySelector('.edit').dataset.constellation= e.constelacion;
+    //       $template.querySelector('.delete').dataset.id= e.id;
 
-          let $clone= document.importNode($template, true);
-          $fragment.appendChild($clone);
+    //       let $clone= document.importNode($template, true);
+    //       $fragment.appendChild($clone);
 
-          $table.appendChild($fragment);
+    //       $table.appendChild($fragment);
 
 
-        });
-      } catch (error) {
-        let message= error.statusText || "Ocurrió un Error";
-        $table.insertAdjacentHTML('afterend', `<p><b>Error ${error.status}:${message}</b></p>`);
+    //     });
+    //   } catch (error) {
+    //     let message= error.statusText || "Ocurrió un Error";
+    //     $table.insertAdjacentHTML('afterend', `<p><b>Error ${error.status}:${message}</b></p>`);
         
-        console.log(error);
-      }
-    }
+    //     console.log(error);
+    //   }
+    // }
 
 
-    document.addEventListener('DOMContentLoaded',getAll);
+    // document.addEventListener('DOMContentLoaded',getAll);
 
     document.addEventListener('submit', async (e)=>{
       e.preventDefault();

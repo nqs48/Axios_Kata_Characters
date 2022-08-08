@@ -1,5 +1,3 @@
-"use strict";
-
 export class SantoModel {
   #id;
   #nombre;

@@ -10,6 +10,7 @@ export class IndexView {
 
 
   init(data) {
+    console.log(data);
     this.#privateBody.className = "body_index";
     const containerHeader = this.#privateCreateContainer();
     containerHeader.className = "header_container";
@@ -48,7 +49,8 @@ export class IndexView {
       const paragraph = this.#privateCreateParagraph();
       const img = document.createElement("img");
       img.className = "images_list";
-      img.src = "c.Image";
+      img.src =
+        "https://images.pexels.com/photos/1767016/pexels-photo-1767016.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500";
       paragraph.textContent = c.Nombre;
       button.append(img, paragraph);
       anchor.append(button);

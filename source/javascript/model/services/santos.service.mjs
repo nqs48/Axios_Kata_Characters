@@ -1,4 +1,4 @@
-import { SantoModel } from "../santo.model";
+import { SantoModel } from "../santo.model.mjs";
 
 export class SantosService {
   #privateUrl;
@@ -7,14 +7,22 @@ export class SantosService {
     this.#privateUrl = url;
   }
 
-  getCharacters() {
-    return fetch(`${this.#privateUrl}/santos`).then((response) =>
-      response.then((res) => res.data)
-    );
+  async getCharacters() {
+    try {
+      let res=axios.get(`${this.#privateUrl}/santos`);
+      return res;
+    } catch (error) {
+      
+    }
+
+    
   }
 
+
   async setModel() {
-    const listAPI = await this.getCharacters();
+    const res = await this.getCharacters();
+    let listAPI = res.data;
+    console.log(listAPI);
     return listAPI.map(
       (s) => new SantoModel(s.id,s.nombre, s.constelacion)
     );
