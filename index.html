@@ -55,19 +55,36 @@
 
     const getAll= async () =>{
       try {
-        let res= await axios.get('http://localhost:5555/santos');
+        let res= await axios.get('http://localhost:3000/santos');
         let json= await res.data;
         console.log(json);
+        json.forEach(e => {
+          $template.querySelector('.name').textContent= e.nombre;
+          $template.querySelector('.constellation').textContent= e.constelacion;
+          $template.querySelector('.edit').dataset.id= e.id;
+          $template.querySelector('.edit').dataset.name= e.nombre;
+          $template.querySelector('.edit').dataset.constellation= e.constelacion;
+          $template.querySelector('.delete').dataset.id= e.id;
+
+          let $clone= document.importNode($template, true);
+          $fragment.appendChild($clone);
+
+          $table.appendChild($fragment);
+
+
+        });
       } catch (error) {
-        let message= err.statusText || "Ocurrió un Error";
-        $table.insertAdjacentHTML('afterend', `<p><b>${error.status}:${message}</b></p>`);
+        let message= error.statusText || "Ocurrió un Error";
+        $table.insertAdjacentHTML('afterend', `<p><b>Error ${error.status}:${message}</b></p>`);
         
         console.log(error);
       }
     }
 
 
-    document.getElementById("DOMContentLoaded",getAll);
+    document.addEventListener('DOMContentLoaded',getAll);
+
+    
   </script>
 </body>
 </html>
