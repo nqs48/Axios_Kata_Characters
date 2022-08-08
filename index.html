@@ -130,7 +130,8 @@
       }
       if(e.target.matches('.delete')){
         try {
-            let options= {
+          let idDelete= e.target.id.value;
+          let options= {
               method: "PUT",
               headers: {
                 "Content-type":"application/json; charset=UTF-8"
@@ -139,7 +140,11 @@
                 nombre: e.target.nombre.value,
                 constelacion: e.target.constelacion.value
               })
-            }
+            },
+            res = await axios(`http://localhost:3000/santos/${idDelete}`, options);
+            json= await res.data;
+            
+
             
           } catch (error) {
             let message= error.statusText || "Ocurrió un Error";
