@@ -17,7 +17,7 @@
         <input type="text" name="constelacion" placeholder="constelación" required>
         <br>
         <input type="submit" value="Enviar">
-        <input type="hidden" name="action">
+        <input type="hidden" name="id">
 
       </form>
     </article>
@@ -45,12 +45,29 @@
         </td>
       </tr>
   </template>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script>
     const $table= document.querySelector('.crud-table');
     const $form= document.querySelector('.crud-form');
     const $title= document.querySelector('.crud-title');
     const $template= document.getElementById('crud-template').content;
     const $fragment= document.createDocumentFragment();
+
+    const getAll= async () =>{
+      try {
+        let res= await axios.get('http://localhost:5555/santos');
+        let json= await res.data;
+        console.log(json);
+      } catch (error) {
+        let message= err.statusText || "Ocurrió un Error";
+        $table.insertAdjacentHTML('afterend', `<p><b>${error.status}:${message}</b></p>`);
+        
+        console.log(error);
+      }
+    }
+
+
+    document.getElementById("DOMContentLoaded",getAll);
   </script>
 </body>
 </html>
