@@ -49,8 +49,7 @@ export class IndexView {
       const paragraph = this.#privateCreateParagraph();
       const img = document.createElement("img");
       img.className = "images_list";
-      img.src =
-        "https://images.pexels.com/photos/1767016/pexels-photo-1767016.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500";
+      img.src = c.Url;
       paragraph.textContent = c.Nombre;
       button.append(img, paragraph);
       anchor.append(button);

@@ -2,11 +2,13 @@ export class SantoModel {
   #id;
   #nombre;
   #constelacion;
+  #url;
 
-  constructor(id, nombre, constelacion) {
+  constructor(id, nombre, constelacion, url) {
     this.#id = id;
     this.#nombre = nombre;
     this.#constelacion = constelacion;
+    this.#url = url;
   }
   get Id() {
     return this.#id;
@@ -26,6 +28,14 @@ export class SantoModel {
 
   set Constelacion(constelacion) {
     this.#constelacion = constelacion;
+  }
+
+  get Url() {
+    return this.#url;
+  }
+
+  set Url(url) {
+    this.#url = url;
   }
 
   toString() {

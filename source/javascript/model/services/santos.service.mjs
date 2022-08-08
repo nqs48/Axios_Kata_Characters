@@ -24,7 +24,7 @@ export class SantosService {
     let listAPI = res.data;
     console.log(listAPI);
     return listAPI.map(
-      (s) => new SantoModel(s.id,s.nombre, s.constelacion)
+      (s) => new SantoModel(s.id,s.nombre, s.constelacion,s.url)
     );
   }
 

@@ -1,44 +1,40 @@
 {
   "santos": [
     {
+      "nombre": "Seiya A",
+      "constelacion": "Pegasus",
       "id": 1,
-      "nombre": "Seiya",
-      "constelacion": "Pegasus"
+      "url": "https://images.pexels.com/photos/1767016/pexels-photo-1767016.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
     },
     {
-      "id": 2,
       "nombre": "Shiryu",
-      "constelacion": "Dragon"
+      "constelacion": "Dragon",
+      "url": "https://images.pexels.com/photos/1767016/pexels-photo-1767016.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+      "id": 2
     },
     {
-      "id": 3,
       "nombre": "Hyoga",
-      "constelacion": "Cisne"
+      "constelacion": "Cisne",
+      "url": "https://images.pexels.com/photos/1767016/pexels-photo-1767016.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+      "id": 3
     },
     {
-      "id": 4,
       "nombre": "Shun",
-      "constelacion": "Andromeda"
+      "constelacion": "Andromeda",
+      "url": "https://images.pexels.com/photos/1767016/pexels-photo-1767016.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+      "id": 4
     },
     {
-      "id": 5,
       "nombre": "Ikki",
-      "constelacion": "Fenix"
+      "constelacion": "Fenix",
+      "url": "https://images.pexels.com/photos/1767016/pexels-photo-1767016.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+      "id": 5
     },
     {
       "nombre": "Nestea",
       "constelacion": "Geminis",
+      "url": "https://images.pexels.com/photos/1767016/pexels-photo-1767016.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
       "id": 6
-    },
-    {
-      "nombre": "sasasa",
-      "constelacion": "sasasas",
-      "id": 7
-    },
-    {
-      "nombre": "Nestea",
-      "constelacion": "Dark",
-      "id": 8
     }
   ]
 }

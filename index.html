@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CRUD API REST</title>
+  <link rel="stylesheet" href="./source/css/styles.css">
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script type="module" src="./source/javascript/controller/index.controller.mjs" async defer></script>
 </head>
@@ -17,6 +18,8 @@
         <input type="text" name="nombre" placeholder="nombre" required>
         <br>
         <input type="text" name="constelacion" placeholder="constelación" required>
+        <br>
+        <input type="text" name="url" placeholder="url Image" >
         <br>
         <input type="submit" value="Enviar">
         <input type="hidden" name="id">
@@ -41,6 +44,7 @@
     <tr>
         <td class="name"></td>
         <td class="constellation"></td>
+        <td class="url"></td>
         <td>
           <button class="edit">Editar</button>
           <button class="delete">Eliminar</button>
@@ -55,37 +59,38 @@
     const $template= document.getElementById('crud-template').content;
     const $fragment= document.createDocumentFragment();
 
-    // const getAll= async () =>{
-    //   try {
-    //     let res= await axios.get('http://localhost:3000/santos');
-    //     console.log(res)
-    //     let json= await res.data;
-    //     console.log(json);
-    //     json.forEach(e => {
-    //       $template.querySelector('.name').textContent= e.nombre;
-    //       $template.querySelector('.constellation').textContent= e.constelacion;
-    //       $template.querySelector('.edit').dataset.id= e.id;
-    //       $template.querySelector('.edit').dataset.name= e.nombre;
-    //       $template.querySelector('.edit').dataset.constellation= e.constelacion;
-    //       $template.querySelector('.delete').dataset.id= e.id;
+    const getAll= async () =>{
+      try {
+        let res= await axios.get('http://localhost:3000/santos');
+        console.log(res)
+        let json= await res.data;
+        console.log(json);
+        json.forEach(e => {
+          $template.querySelector('.name').textContent= e.nombre;
+          $template.querySelector('.constellation').textContent= e.constelacion;
+          $template.querySelector('.edit').dataset.id= e.id;
+          $template.querySelector('.edit').dataset.name= e.nombre;
+          $template.querySelector('.edit').dataset.constellation= e.constelacion;
+          $template.querySelector('.edit').dataset.url= e.url;
+          $template.querySelector('.delete').dataset.id= e.id;
 
-    //       let $clone= document.importNode($template, true);
-    //       $fragment.appendChild($clone);
+          let $clone= document.importNode($template, true);
+          $fragment.appendChild($clone);
 
-    //       $table.appendChild($fragment);
+          $table.appendChild($fragment);
 
 
-    //     });
-    //   } catch (error) {
-    //     let message= error.statusText || "Ocurrió un Error";
-    //     $table.insertAdjacentHTML('afterend', `<p><b>Error ${error.status}:${message}</b></p>`);
+        });
+      } catch (error) {
+        let message= error.statusText || "Ocurrió un Error";
+        $table.insertAdjacentHTML('afterend', `<p><b>Error ${error.status}:${message}</b></p>`);
         
-    //     console.log(error);
-    //   }
-    // }
+        console.log(error);
+      }
+    }
 
 
-    // document.addEventListener('DOMContentLoaded',getAll);
+    document.addEventListener('DOMContentLoaded',getAll);
 
     document.addEventListener('submit', async (e)=>{
       e.preventDefault();
@@ -103,7 +108,9 @@
               },
               data: JSON.stringify({
                 nombre: e.target.nombre.value,
-                constelacion: e.target.constelacion.value
+                constelacion: e.target.constelacion.value,
+                url: e.target.url.value
+
               })
             },
             res= await axios('http://localhost:3000/santos', options);
@@ -125,7 +132,8 @@
               },
               data: JSON.stringify({
                 nombre: e.target.nombre.value,
-                constelacion: e.target.constelacion.value
+                constelacion: e.target.constelacion.value,
+                url: e.target.url.value
               })
             },
             res = await axios(`http://localhost:3000/santos/${idUpdate}`, options);
@@ -148,9 +156,11 @@
         let id= e.target.dataset.id;
         let name= e.target.dataset.name;
         let constellation= e.target.dataset.constellation;
+        let url=e.target.dataset.url;
         $form.id.value= id;
         $form.nombre.value= name;
         $form.constelacion.value= constellation;
+        $form.url.value= url;
         $title.textContent= "Editar Santo";
       }
       if(e.target.matches('.delete')){
