@@ -12,12 +12,12 @@ export class SantosService {
       let res=axios.get(`${this.#privateUrl}/santos`);
       return res;
     } catch (error) {
-      
+      let message = error.statusText || "Ocurrió un Error";
+      console.error(message);
     }
 
     
   }
-
 
   async setModel() {
     const res = await this.getCharacters();
@@ -28,22 +28,4 @@ export class SantosService {
     );
   }
 
-  // getLocalStorage() {
-  //   if (localStorage.getItem("character")) {
-  //     let items = localStorage
-  //       .getItem("character")
-  //       .slice(0, -1)
-  //       .replace('"', "");
-  //     const list = items.split(",");
-  //     const object = new CharacterModel(
-  //       list[0],
-  //       list[1],
-  //       list[2],
-  //       list[3],
-  //       list[4]
-  //     );
-  //     console.log(object.toString());
-  //     return object;
-  //   }
-  // }
 }

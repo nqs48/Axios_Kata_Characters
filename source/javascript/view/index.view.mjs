@@ -16,9 +16,8 @@ export class IndexView {
     containerHeader.className = "header_container";
 
     const imgHeader = document.createElement("img");
-    imgHeader.src =
-      "../../../assets/img/SaintSeiyaLogo.png";
-
+    imgHeader.src ="/assets/img/SaintSeiyaLogo.png";
+    imgHeader.alt= "Header image SaintSeiya";
     imgHeader.className = "image_header";
 
     containerHeader.append(imgHeader);
@@ -26,34 +25,41 @@ export class IndexView {
     const container = this.#privateCreateContainer();
     container.className = "main_container";
 
-    
-
     data.forEach((c) => {
-      const anchor = this.#privateCreateAnchor();
-      anchor.href = "/details.html";
-      // anchor.target="_blank";
+      const div = this.#privateCreateContainer();
 
       const button = this.#privateCreateButton();
       button.className = "button_container";
-      // button.addEventListener("click", () => {
-      //   localStorage.setItem(
-      //     "character",
-      //     JSON.stringify(
-      //       `${c.Name},${c.Status},${c.Species},${c.Image},${c.Gender}`
-      //     )
-      //   );
-      //   // window.open("/source/javascript/view/details.html");
-      //   console.log(c);
-      // });
 
-      const paragraph = this.#privateCreateParagraph();
+      const paragraphName = this.#privateCreateParagraph();
+      paragraphName.textContent = c.Nombre;
+      paragraphName.className = "paragraph";
+      const paragraphConstellation = this.#privateCreateParagraph();
+      paragraphConstellation.textContent = c.Constelacion;
+      paragraphConstellation.className = "paragraph";
       const img = document.createElement("img");
       img.className = "images_list";
       img.src = c.Url;
-      paragraph.textContent = c.Nombre;
-      button.append(img, paragraph);
-      anchor.append(button);
-      container.append(anchor);
+      img.alt = "Image Character";
+      const divButtons = this.#privateCreateContainer();
+      divButtons.className = "buttons_container";
+
+      const buttonEdit = this.#privateCreateButton();
+      buttonEdit.textContent = "Update";
+      buttonEdit.className = "button_edit button edit";
+      buttonEdit.dataset.id=`${c.Id}`;
+      buttonEdit.dataset.name=`${c.Nombre}`;
+      buttonEdit.dataset.constellation=`${c.Constelacion}`;
+      buttonEdit.dataset.url=`${c.Url}`;
+      const buttonDelete = this.#privateCreateButton();
+      buttonDelete.textContent = "Delete";
+      buttonDelete.className = "button_delete button delete";
+      buttonDelete.dataset.id=`${c.Id}`;
+      divButtons.append(buttonEdit, buttonDelete);
+
+      button.append(img, paragraphName, paragraphConstellation, divButtons);
+      div.append(button);
+      container.append(div);
     });
     this.#privateBody.append(containerHeader, container);
   }

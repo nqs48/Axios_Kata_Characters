@@ -1,40 +1,16 @@
 {
   "santos": [
     {
-      "nombre": "Seiya A",
-      "constelacion": "Pegasus",
-      "id": 1,
-      "url": "https://images.pexels.com/photos/1767016/pexels-photo-1767016.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-    },
-    {
-      "nombre": "Shiryu",
-      "constelacion": "Dragon",
-      "url": "https://images.pexels.com/photos/1767016/pexels-photo-1767016.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-      "id": 2
-    },
-    {
-      "nombre": "Hyoga",
-      "constelacion": "Cisne",
-      "url": "https://images.pexels.com/photos/1767016/pexels-photo-1767016.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-      "id": 3
-    },
-    {
-      "nombre": "Shun",
-      "constelacion": "Andromeda",
-      "url": "https://images.pexels.com/photos/1767016/pexels-photo-1767016.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-      "id": 4
-    },
-    {
-      "nombre": "Ikki",
-      "constelacion": "Fenix",
-      "url": "https://images.pexels.com/photos/1767016/pexels-photo-1767016.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-      "id": 5
-    },
-    {
       "nombre": "Nestea",
-      "constelacion": "Geminis",
-      "url": "https://images.pexels.com/photos/1767016/pexels-photo-1767016.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-      "id": 6
+      "constelacion": "Earth",
+      "url": "https://avatars.githubusercontent.com/u/78573363?v=4",
+      "id": 1
+    },
+    {
+      "nombre": "Goku",
+      "constelacion": "Veggeta",
+      "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaUueZqe9FUMdxfN8PIQauXdoBe-z6vvWwGA&usqp=CAU",
+      "id": 2
     }
   ]
 }

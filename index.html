@@ -10,87 +10,24 @@
   <script type="module" src="./source/javascript/controller/index.controller.mjs" async defer></script>
 </head>
 <body>
-  <h1>CRUD API REST</h1>
-  <section class="crud">
-    <article>
-      <h2 class="crud-title">Agregar Santos</h2>
-      <form class="crud-form">
-        <input type="text" name="nombre" placeholder="nombre" required>
-        <br>
-        <input type="text" name="constelacion" placeholder="constelación" required>
-        <br>
-        <input type="text" name="url" placeholder="url Image" >
-        <br>
-        <input type="submit" value="Enviar">
-        <input type="hidden" name="id">
-
-      </form>
-    </article>
-    <article>
-      <h2>Ver Santos</h2>
-      <table class="crud-table">
-        <thead>
-          <tr>
-            <th>Nombre</th>
-            <th>Constelación</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
-    </article>
-  </section>
-  <template id="crud-template">
-    <tr>
-        <td class="name"></td>
-        <td class="constellation"></td>
-        <td class="url"></td>
-        <td>
-          <button class="edit">Editar</button>
-          <button class="delete">Eliminar</button>
-        </td>
-      </tr>
-  </template>
-  <!--  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> -->
+  <div class="container">
+    <h1 class="crud-title">Add Character</h1>
+    <section class="crud">
+      <article>
+        <form class="crud-form">
+          <input class= "input" type="text" name="nombre" placeholder="Name" required>
+          <input class= "input" type="text" name="constelacion" placeholder="Origin" required>
+          <input class= "input" type="text" name="url" placeholder="Url Image" >
+          <input class="button button_send" type="submit" value="Go">
+          <input type="hidden" name="id">
+        </form>
+      </article>
+    </section>
+  </div>
+  
   <script>
-    const $table= document.querySelector('.crud-table');
     const $form= document.querySelector('.crud-form');
     const $title= document.querySelector('.crud-title');
-    const $template= document.getElementById('crud-template').content;
-    const $fragment= document.createDocumentFragment();
-
-    const getAll= async () =>{
-      try {
-        let res= await axios.get('http://localhost:3000/santos');
-        console.log(res)
-        let json= await res.data;
-        console.log(json);
-        json.forEach(e => {
-          $template.querySelector('.name').textContent= e.nombre;
-          $template.querySelector('.constellation').textContent= e.constelacion;
-          $template.querySelector('.edit').dataset.id= e.id;
-          $template.querySelector('.edit').dataset.name= e.nombre;
-          $template.querySelector('.edit').dataset.constellation= e.constelacion;
-          $template.querySelector('.edit').dataset.url= e.url;
-          $template.querySelector('.delete').dataset.id= e.id;
-
-          let $clone= document.importNode($template, true);
-          $fragment.appendChild($clone);
-
-          $table.appendChild($fragment);
-
-
-        });
-      } catch (error) {
-        let message= error.statusText || "Ocurrió un Error";
-        $table.insertAdjacentHTML('afterend', `<p><b>Error ${error.status}:${message}</b></p>`);
-        
-        console.log(error);
-      }
-    }
-
-
-    document.addEventListener('DOMContentLoaded',getAll);
 
     document.addEventListener('submit', async (e)=>{
       e.preventDefault();
@@ -161,7 +98,7 @@
         $form.nombre.value= name;
         $form.constelacion.value= constellation;
         $form.url.value= url;
-        $title.textContent= "Editar Santo";
+        $title.textContent= "Update Character";
       }
       if(e.target.matches('.delete')){
         let idDelete= e.target.dataset.id;
@@ -182,13 +119,9 @@
             
           } catch (error) {
             let message= error.statusText || "Ocurrió un Error";
-            alert(`Error ${error.status}:${message}`);
-            
+            alert(`Error ${error.status}:${message}`);           
           }
-
-        }
-        
-
+        }  
       }
     })
 
