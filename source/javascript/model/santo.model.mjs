@@ -1,20 +1,25 @@
 "use strict";
 
 export class SantoModel {
+  #id;
   #nombre;
   #constelacion;
 
-  constructor() {
-    this.#nombre = "";
-    this.#constelacion = "";
+  constructor(id, nombre, constelacion) {
+    this.#id = id;
+    this.#nombre = nombre;
+    this.#constelacion = constelacion;
+  }
+  get Id() {
+    return this.#id;
   }
 
   get Nombre() {
     return this.#nombre;
   }
 
-  set Nombre(name) {
-    this.#nombre = name;
+  set Nombre(nombre) {
+    this.#nombre = nombre;
   }
 
   get Constelacion() {
