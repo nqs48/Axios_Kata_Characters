@@ -116,7 +116,23 @@
         }
         
       }
-    } )
+    } );
+
+    document.addEventListener("click",async (e)=>{
+      if(e.target.matches('.edit')){
+        //e.preventDefault();
+        let id= e.target.dataset.id;
+        let name= e.target.dataset.name;
+        let constellation= e.target.dataset.constellation;
+        $form.id.value= id;
+        $form.nombre.value= name;
+        $form.constelacion.value= constellation;
+        $title.textContent= "Editar Santo";
+      }
+      if(e.target.matches('.delete')){
+
+      }
+    })
 
     
   </script>
