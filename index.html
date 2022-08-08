@@ -151,6 +151,29 @@
         $title.textContent= "Editar Santo";
       }
       if(e.target.matches('.delete')){
+        let idDelete= e.target.dataset.id;
+        let isDelete= confirm(`¿Estás seguro de eliminar el id ${idDelete} ?`);
+        if(isDelete){
+          //DELETE SAINT 
+          try {
+          let idUpdate= e.target.id.value;
+          let options= {
+              method: "DELETE",
+              headers: {
+                "Content-type":"application/json; charset=UTF-8"
+              }
+            },
+            res = await axios(`http://localhost:3000/santos/${idDelete}`, options);
+            json= await res.data;
+            location.reload();
+            
+          } catch (error) {
+            let message= error.statusText || "Ocurrió un Error";
+            alert(`Error ${error.status}:${message}`);
+            
+          }
+
+        }
         
 
       }
