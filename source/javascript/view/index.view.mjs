@@ -4,7 +4,7 @@ export class IndexView {
   #privateBody;
 
   constructor() {
-    document.title = "Saint Seiya";
+    document.title = "Saint Seiya | Axios";
     this.#privateBody = document.querySelector("body");
   }
 
