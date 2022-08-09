@@ -30,18 +30,17 @@ This project was carried out as a practice for **AXIOS HTTP Requests**, in this 
 
 Basic CRUD operations, with a table component for render data.
 
-![image]()
+![image](https://res.cloudinary.com/adev48/image/upload/v1660004138/Deployments/Axios_Kata_Characters/basic-functions_secnyd.png)
 
 ---
 
-
-## RESPONSIVE INTERFACE:
+## ADD NEW FEATURES:
 
 ### UI Index Web Page
 
 Responsive design of single page aplication.
 
-![image]()
+![image](https://res.cloudinary.com/adev48/image/upload/v1660004140/Deployments/Axios_Kata_Characters/responsive-ui_b9nygc.png)
 
 ---
 
@@ -51,7 +50,7 @@ Responsive design of single page aplication.
 
 Fake API consumption with dynamic json file update, data management and render the info.
 
-![image]()
+![image](https://res.cloudinary.com/adev48/image/upload/v1660004138/Deployments/Axios_Kata_Characters/json-server_v1s3r2.png)
 
 ---
 
@@ -59,9 +58,9 @@ Fake API consumption with dynamic json file update, data management and render t
 
 ### Details of each character
 
-You can update data character an d change his profile image.
+You can update data character and change his profile image.
 
-![image]()
+![image](https://res.cloudinary.com/adev48/image/upload/v1660004139/Deployments/Axios_Kata_Characters/update_data_edax7p.png)
 
 ---
 
