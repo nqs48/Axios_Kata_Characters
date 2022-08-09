@@ -17,7 +17,7 @@ This project was carried out as a practice for **AXIOS HTTP Requests**, in this 
 - Key frontend concepts
   
 
-## [Video project explanation](https://rick-n-morty-adev.netlify.app/index.html)
+## [Video: Project Review ](https://youtu.be/F8dxISBCTqQ)
 
 
 ---
