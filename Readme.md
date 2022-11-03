@@ -102,15 +102,21 @@ Install each one the pieces of software previously mentioned (Git).
    ```
    $ open .
    ```
-
-3. JSON SERVER, execute the following command for Run Server 
+   
+3. Install package with npm [`json-server`](https://www.npmjs.com/package/json-server)
 
    ```
-   json-server --watch assets/db.json
+   $ npm i json-server
+   ```
+
+4. JSON SERVER, execute the following command for Run Server 
+
+   ```
+   $ json-server --watch assets/db.json
    
    ```
 
-4. Open the localhost port 3000 in your preference browser
+5. Open the localhost port 3000 in your preference browser
 
    ```
    http://localhost:3000/
